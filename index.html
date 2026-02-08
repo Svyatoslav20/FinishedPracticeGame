@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра в пары</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="settings">
+        <div class="settingsImg">
+            <img src="img/SetLogo.svg" alt="Настройки" class="settingsBtn">
+        </div>
+        <div class="settingsMenu">
+            на данный момент ломает задний фон <br>(не использовать)!
+            <p class="subinfo">Настроить градиент<br>заднего фона:</p>
+            <ul class="">
+                1<input type="color" value="#ffb67a" class="settings__color" id="first">
+                2<input type="color" value="#ffb24e" class="settings__color" id="second">
+                3<input type="color" value="#e76c64" class="settings__color" id="third">
+                4<input type="color" value="#ffb24e" class="settings__color" id="fourth">
+                5<input type="color" value="#ffb67a" class="settings__color" id="fifth">
+                <input type="number" id="setInput" placeholder="Градусная мера" min="-360" max="360">
+                <div class="square"></div>*демонстрация фона
+            </ul>
+        </div>
+    </div>
+    <div class="base">
+        <div class="start">
+            <div class="divI">
+                <ul class="info">
+                    <p class="name">Пары</p>
+                    <p class="steps miniInfo">Шаги: 0</p>
+                    <p class="time miniInfo">Время: 0</p>
+                </ul>
+            </div>
+            <div class="divS">
+                <p class="subinfo">Настроить количество карточек (от 2 до 6)</p>
+                <input type="number" min="2" max="6" step='2' class="startInp" placeholder="По горизонтали / вертикали">
+                <button class="startBtn button">НАЧАТЬ</button>
+            </div>
+        </div>
+    </div>
+    <template id="gameTableTemplate">
+        <div class="table">
+            <button class="table__button button">Рестарт</button>
+        </div>
+    </template>
+    <template id="cardTemplate">
+        <div class="card">
+            <i class="fa-solid"></i>
+        </div>
+    </template>
+    <script type='module' src="script.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+import { createBoard } from "./scripts/createBoard";

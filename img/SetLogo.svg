@@ -1,0 +1,11 @@
+<svg width="314" height="314" viewBox="0 0 314 314" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="124.484" width="65" height="74" rx="10" fill="#E3E3E3"/>
+<rect x="124.484" y="240" width="65" height="74" rx="10" fill="#E3E3E3"/>
+<rect y="191.485" width="65" height="74" rx="10" transform="rotate(-90 0 191.485)" fill="#E3E3E3"/>
+<rect x="239.967" y="187.515" width="65" height="74" rx="10" transform="rotate(-90 239.967 187.515)" fill="#E3E3E3"/>
+<rect x="22.1457" y="70.259" width="65" height="74" rx="10" transform="rotate(-45.5515 22.1457 70.259)" fill="#E3E3E3"/>
+<rect x="193.477" y="238.323" width="65" height="74" rx="10" transform="rotate(-45.5515 193.477 238.323)" fill="#E3E3E3"/>
+<rect x="71.6711" y="293.216" width="65" height="74" rx="10" transform="rotate(-135.551 71.6711 293.216)" fill="#E3E3E3"/>
+<rect x="236.878" y="119.128" width="65" height="74" rx="10" transform="rotate(-135.551 236.878 119.128)" fill="#E3E3E3"/>
+<path d="M157.484 37C223.758 37 277.484 90.7258 277.484 157C277.484 223.274 223.758 277 157.484 277C91.2094 277 37.4836 223.274 37.4836 157C37.4836 90.7258 91.2094 37 157.484 37ZM157.484 82C116.062 82 82.4836 115.579 82.4836 157C82.4836 198.421 116.062 232 157.484 232C198.905 232 232.484 198.421 232.484 157C232.484 115.579 198.905 82 157.484 82Z" fill="#E3E3E3"/>
+</svg>
