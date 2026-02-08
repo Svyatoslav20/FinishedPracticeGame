@@ -3,9 +3,7 @@ const secColor = document.querySelector('#second')
 const thdColor = document.querySelector('#third')
 const fouthColor = document.querySelector('#fourth')
 const fifColor =document.querySelector('#fifth')
-// const board = document.querySelector('.divS')
-// const startBtn = document.querySelector('.startBtn')
-// const startInp = document.querySelector('.startInp')
+
 const setBtn = document.querySelector('.settingsBtn')
 const setMenu = document.querySelector('.settingsMenu')
 const setInput = document.querySelector('#setInput')
@@ -33,7 +31,7 @@ function bgColorChange() {
 document.addEventListener('mousemove', e => {
     const settingsImg = document.querySelector('.settingsImg')
     const setBtn = document.querySelector('.settingsBtn')
-    const rect = settingsImg.getBoundingClientRect(); // координата
+    const rect = settingsImg.getBoundingClientRect(); // координата курсора
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     if(mouseX > rect.left -100 && mouseX < rect.right + 100 && mouseY > rect.top - 100 && mouseY < rect.bottom + 100) {

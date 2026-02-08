@@ -1,8 +1,10 @@
-import { totalFlips } from "./gameLogic.js";
-let totalTime = 60;
 let intervalId = null;
-function startTimer() {
+let totalTime = 60;
+
+export function startTimer() {
     const timeElement = document.querySelector('.time');
+    totalTime = 60;
+    clearInterval(intervalId);
     
     intervalId = setInterval(() => {
         if (totalTime <= 0) {
@@ -12,8 +14,10 @@ function startTimer() {
             return;
         }
         totalTime--;
-        // Используем шаблонную строку, чтобы сохранить слово "Время"
         timeElement.textContent = `Время: ${totalTime}`;
     }, 1000);
 }
-export{ startTimer, totalTime}
+
+export function stopTimer() {
+    clearInterval(intervalId);
+}

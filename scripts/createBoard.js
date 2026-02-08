@@ -1,12 +1,15 @@
 import { createIconsArray, createCard } from "./cards.js";
 import { startTimer } from "./timer.js";
+import { resetGameStats } from "./gameLogic.js";
+
 const board = document.querySelector('.divS');
 const gameTableTemplate = document.querySelector('#gameTableTemplate');
-const cardTemplate = document.querySelector('#cardTemplate');
-function createBoard(columns) {
-    board.innerHTML = ''; // Очищаем только зону игры (кнопку СТАРТ и инпут)
+
+export function createBoard(columns) {
+    board.innerHTML = '';
+    resetGameStats();
     
-    let templateContent = gameTableTemplate.content.cloneNode(true);
+    const templateContent = gameTableTemplate.content.cloneNode(true);
     const restartBtn = templateContent.querySelector('.table__button');
     const gameTable = templateContent.querySelector('.table');
     
@@ -16,22 +19,12 @@ function createBoard(columns) {
         gap: 10px;
     `;
     
-    const totalCards = columns * columns;
-    let icons = createIconsArray(totalCards);
-    
-    icons.forEach((icon) => {
-        const card = createCard(icon);
-        gameTable.appendChild(card);
-    });
+    const icons = createIconsArray(columns * columns);
+    icons.forEach(icon => gameTable.appendChild(createCard(icon)));
     
     board.appendChild(gameTable);
     board.appendChild(restartBtn);
     
-    totalTime = 60;
-    totalFlips = 0;
-    clearInterval(intervalId); // Сброс старого таймера, если он был
     startTimer();
-    
     restartBtn.addEventListener('click', () => location.reload());
 }
-export{createBoard}

@@ -1,34 +1,32 @@
-import { startTimer } from "./timer.js";
-let totalTime = 60;
-let totalFlips = 0;
-let intervalId = null;
-const gameTableTemplate = document.querySelector('#gameTableTemplate');
-const cardTemplate = document.querySelector('#cardTemplate');
-const startBtn = document.querySelector('.startBtn');
-const startInp = document.querySelector('.startInp');
+import { generateConfetti } from "./confetti.js";
+import { stopTimer } from "./timer.js";
+
 const couple = {
     first: null,
     second: null,
     firstClickable: true,
     secondClickable: true
 };
-function gameLogic(card) {
-    // Если две карты уже открыты и проверяются, или время вышло — игнорируем клик
-    if (!couple.firstClickable || !couple.secondClickable || totalTime <= 0) return;
+
+let totalFlips = 0;
+
+export function gameLogic(card) {
+    if (!couple.firstClickable || !couple.secondClickable) return;
 
     card.classList.add('flip');
 
     if (couple.first === null) {
         couple.first = card;
     } else {
+        if (couple.first === card) return;
+        
         couple.second = card;
         couple.firstClickable = false;
         couple.secondClickable = false;
         
         totalFlips++;
-        document.querySelector('.steps').textContent = `Шаги: ${totalFlips}`; // Обновляем текст шагов
+        document.querySelector('.steps').textContent = `Шаги: ${totalFlips}`;
 
-        // Сравниваем названия иконок (проверяем все классы элемента <i>)
         const icon1 = couple.first.querySelector('i').className;
         const icon2 = couple.second.querySelector('i').className;
 
@@ -37,7 +35,7 @@ function gameLogic(card) {
                 couple.first.classList.add('successfully');
                 couple.second.classList.add('successfully');
                 refresh();
-                isWin();
+                checkWin();
             }, 500);
         } else {
             setTimeout(() => {
@@ -56,20 +54,17 @@ function refresh() {
     couple.secondClickable = true;
 }
 
-function isWin() {
-    const allCards = document.querySelectorAll('.card');
-    const successCards = document.querySelectorAll('.successfully');
-    if (allCards.length === successCards.length) {
-        clearInterval(intervalId);
-        setTimeout(() => alert("Вы победили!"), 500);
+function checkWin() {
+    const all = document.querySelectorAll('.card').length;
+    const success = document.querySelectorAll('.successfully').length;
+    if (all > 0 && all === success) {
+        stopTimer();
+        generateConfetti(100);
+        setTimeout(() => alert("Победа!"), 5000);
     }
 }
-startBtn.addEventListener('click', () => {
-    let inpVal = parseInt(startInp.value);
-    if (inpVal >= 2 && inpVal <= 6 && inpVal % 2 === 0) {
-        createBoard(inpVal);
-    } else {
-        alert('Введите четное число от 2 до 6');
-    }
-});
-export{gameLogic, totalFlips}
+
+export function resetGameStats() {
+    totalFlips = 0;
+    document.querySelector('.steps').textContent = `Шаги: 0`;
+}

@@ -145,6 +145,18 @@ body.theme {
     cursor: default;
 }
 
+.confetti {
+    position: absolute;
+    width: 80%;
+    height: 100vh;
+    z-index: 1;
+    top:0;
+    left: 10%;
+    pointer-events: none;
+}
+
+
+
 .settingsBtn {
     width: 50px;
     top: 20px;
@@ -236,4 +248,10 @@ body.theme {
     0%{rotate: 0deg;}
     93%{rotate: 0deg}
     100% {rotate: 180deg; filter: contrast(1)};
+}
+@keyframes moveDown {
+  100% {
+    top: 110%;
+    transform: rotate(360deg);
+  }
 }
